@@ -45,7 +45,9 @@ if uv.submitx=="yes"
 	//multiply by count number
 	v.mathstate*v.count
 	
+	//total up and round
 	v.itemsinbin=v.mathstate
+	v.itemsinbin=s.number_round(v.itemsinbin)
 	
 	if not v.warning==false
 		s.echo("<div style='background:#e74c3c;color:#ffffff;padding:5px;border-radius:5px;margin-bottom:10px;'>v.warning</div>")
