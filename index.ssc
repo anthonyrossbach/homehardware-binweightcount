@@ -1,0 +1,102 @@
+//Bin Converter for HH by Anthony Rossbach 2017
+`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Bin Converter</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" media="none" onload="if(media!='all')media='all'">
+	<link rel="stylesheet" type="text/css" href="//assets.nodehost.ca/css/bootstrap.min.css" media="none" onload="if(media!='all')media='all'">
+	<link rel="stylesheet" type="text/css" href="//assets.nodehost.ca/css/master.css" media="none" onload="if(media!='all')media='all'">
+	<style>
+		body{
+			background:#f1f1f1;
+		}
+		input, input[type="text"], input[type="password"] {
+			max-width:120px;
+			border:1px solid #555555;
+			margin-right:5px;
+		}
+	</style>
+</head>
+<body>
+	<div style='background:#ffffff;margin:0px auto;margin-top:20px;margin-bottom:5px;max-width:700px;padding:10px;border-radius:5px;'>
+`
+if uv.submitx=="yes"
+	v.bin=0
+	v.count=0
+	v.countweight=0
+	v.total=0
+	
+	v.valuesset=true
+	v.warning=false
+	
+	v.itemsinbin=0
+	v.mathstate=0
+	
+	//remove bin weight
+	v.mathstate=v.total-v.bin
+	
+	//devide by weight of the count
+	v.mathstate=v.mathstate/v.countweight
+	
+	//multiply by count number
+	v.mathstate=v.mathstate*v.count
+	
+	v.itemsinbin=v.mathstate
+	
+	if not v.warning==false
+		s.echo("<div style='background:#e74c3c;color:#ffffff;padding:5px;border-radius:5px;margin-bottom:10px;'>v.warning</div>")
+	end
+	
+	if set v.valuesset
+	
+		s.echo("<h2>Weights <a href='/'><div style='float:right;display:inline-block;text-align:right;'>Clear<div></a></h2>")
+
+		s.echo("<div style='padding-bottom:10px;text-align:center;'>")
+		s.echo("<h1>v.itemsinbin Items in the bin</h1>")
+		s.echo("</div>")
+		
+	end
+else
+	s.echo("Enter the values as you see on the can and click convert. This was made by <a href='https://github.com/anthonyrossbach/homehardware_binweightcount' target='_new'>Anthony</a>.")
+end
+
+s.echo("<h2>Data</h2>")
+s.echo("<div style='padding:10px;text-align:center;'>")
+s.echo("<input type=\"text\" name=\"bin\" value=\"Bin Weight\" disabled>")
+s.echo("<input type=\"text\" name=\"count\" value=\"Count\" disabled>")
+s.echo("<input type=\"text\" name=\"countweight\" value=\"Weight of count\" disabled>")
+s.echo("<input type=\"text\" name=\"total\" value=\"Total Weight\" disabled>")
+s.echo("</div>")
+
+s.echo("<form>")
+
+s.echo("<div style='padding-bottom:10px;text-align:center;'>")
+if set uv.axounce
+	s.echo("<input type=\"text\" name=\"bin\" value=\"uv.bin\" placeholder=\"Bin Weight\">")
+else
+	s.echo("<input type=\"text\" name=\"bin\" value=\"\" placeholder=\"Bin Weight\">")
+end
+if set uv.axshot
+	s.echo("<input type=\"text\" name=\"count\" value=\"uv.count\" placeholder=\"Count\">")
+else
+	s.echo("<input type=\"text\" name=\"count\" value=\"\" placeholder=\"Count\">")
+end
+if set uv.axhalfshot
+	s.echo("<input type=\"text\" name=\"countweight\" value=\"countweight\" placeholder=\"Weight of count\">")
+else
+	s.echo("<input type=\"text\" name=\"countweight\" value=\"\" placeholder=\"Weight of count\">")
+end
+if set uv.axquartershot
+	s.echo("<input type=\"text\" name=\"total\" value=\"uv.total\" placeholder=\"Total Weight\">")
+else
+	s.echo("<input type=\"text\" name=\"total\" value=\"\" placeholder=\"Total Weight\">")
+end
+s.echo("</div></form>")
+`
+	</div>
+</body>
+</html>
+`
