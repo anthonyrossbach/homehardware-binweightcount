@@ -94,7 +94,10 @@ if set uv.axquartershot
 else
 	s.echo("<input type=\"text\" name=\"total\" value=\"\" placeholder=\"Total Weight\">")
 end
-s.echo("</div></form>")
+s.echo("</div>")
+
+s.echo("<div style='position:fixed;left:-500px;'><input type=\"text\" name=\"submitx\" value=\"yes\"></div><input style=\"max-width:100%;\" type=\"submit\" name=\"submit\" value=\"Convert\">")
+s.echo("</form>")
 `
 	</div>
 </body>
