@@ -63,7 +63,7 @@ if uv.submitx=="yes"
 		
 	end
 else
-	s.echo("Enter the values as you see on the can and click convert. This was made by <a href='https://github.com/anthonyrossbach/homehardware_binweightcount' target='_new'>Anthony</a>.")
+	s.echo("Enter the values and click convert. Bin weight is the weight of a empty bin, count is the number of items out on the scale (usualy 5-10), weight of count is the weight of the (5-10) items put on the scale, and total weight is the weight of all items and the bin combined on the scale. This was made by <a href='https://github.com/anthonyrossbach/homehardware_binweightcount' target='_new'>Anthony</a>.")
 end
 
 s.echo("<h2>Data</h2>")
