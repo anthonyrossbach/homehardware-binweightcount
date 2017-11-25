@@ -24,10 +24,10 @@
 	<div style='background:#ffffff;margin:0px auto;margin-top:20px;margin-bottom:5px;max-width:700px;padding:10px;border-radius:5px;'>
 `
 if uv.submitx=="yes"
-	v.bin=0
-	v.count=0
-	v.countweight=0
-	v.total=0
+	v.bin=uv.bin
+	v.count=uv.count
+	v.countweight=uv.countweight
+	v.total=uv.total
 	
 	v.valuesset=true
 	v.warning=false
@@ -36,13 +36,14 @@ if uv.submitx=="yes"
 	v.mathstate=0
 	
 	//remove bin weight
-	v.mathstate=v.total-v.bin
+	v.mathstate=v.total
+	v.mathstate-v.bin
 	
 	//devide by weight of the count
-	v.mathstate=v.mathstate/v.countweight
+	v.mathstate/v.countweight
 	
 	//multiply by count number
-	v.mathstate=v.mathstate*v.count
+	v.mathstate*v.count
 	
 	v.itemsinbin=v.mathstate
 	
@@ -74,22 +75,22 @@ s.echo("</div>")
 s.echo("<form>")
 
 s.echo("<div style='padding-bottom:10px;text-align:center;'>")
-if set uv.axounce
+if set uv.bin
 	s.echo("<input type=\"text\" name=\"bin\" value=\"uv.bin\" placeholder=\"Bin Weight\">")
 else
 	s.echo("<input type=\"text\" name=\"bin\" value=\"\" placeholder=\"Bin Weight\">")
 end
-if set uv.axshot
+if set uv.count
 	s.echo("<input type=\"text\" name=\"count\" value=\"uv.count\" placeholder=\"Count\">")
 else
 	s.echo("<input type=\"text\" name=\"count\" value=\"\" placeholder=\"Count\">")
 end
-if set uv.axhalfshot
+if set uv.countweight
 	s.echo("<input type=\"text\" name=\"countweight\" value=\"countweight\" placeholder=\"Weight of count\">")
 else
 	s.echo("<input type=\"text\" name=\"countweight\" value=\"\" placeholder=\"Weight of count\">")
 end
-if set uv.axquartershot
+if set uv.total
 	s.echo("<input type=\"text\" name=\"total\" value=\"uv.total\" placeholder=\"Total Weight\">")
 else
 	s.echo("<input type=\"text\" name=\"total\" value=\"\" placeholder=\"Total Weight\">")
