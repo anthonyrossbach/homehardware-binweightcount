@@ -86,7 +86,7 @@ else
 	s.echo("<input type=\"text\" name=\"count\" value=\"\" placeholder=\"Count\">")
 end
 if set uv.countweight
-	s.echo("<input type=\"text\" name=\"countweight\" value=\"countweight\" placeholder=\"Weight of count\">")
+	s.echo("<input type=\"text\" name=\"countweight\" value=\"uv.countweight\" placeholder=\"Weight of count\">")
 else
 	s.echo("<input type=\"text\" name=\"countweight\" value=\"\" placeholder=\"Weight of count\">")
 end
